@@ -1,103 +1,96 @@
-import Image from "next/image";
+"use client";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton
+} from "@clerk/nextjs";
 
-export default function Home() {
+import { Play } from "lucide-react";
+
+
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Spotlight } from "@/components/ui/Spotlight";
+import { TextGenerateEffect } from "@/components/ui/text-generate";
+import Waves from "@/components/ui/Waves";
+import Navigation from "@/components/ui/navigation";
+import HelpSection from "@/components/ui/help";
+import Footer from "@/components/ui/contactus";
+
+const words = "Behind every scan lies the power to save a life";
+
+export default function BrainTumorNetwork() {
+  const router = useRouter();
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+    <script src="//code.tidio.co/dcjztxcfpm0eg9igd2xkxwzfa667zhl7.js" async></script>
+      {/* Main Hero Section */}
+      <div className="relative h-180 w-full bg-cover bg-center bg-[url('https://149587026.v2.pressablecdn.com/wp-content/uploads/2022/10/legrandphoto_22-8159-1620x1080.jpg?extend_cdn')]">
+        
+        {/* Black Overlay */}
+        <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        {/* Navbar */}
+        <nav className="relative z-10 flex items-center justify-between p-12 bg-[#3B4461]">
+          <div className="text-2xl font-bold flex items-center ml-30">
+            <img
+              src="https://www.braintumornetwork.org/wp-content/themes/elevation_theme/assets/images/logo.svg"
+              alt="Brain Tumor Network"
+              className="h-15"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+             
+          </div>
+          <div className="hidden md:flex items-center gap-4 mr-30">
+            
+          <SignedOut>
+    <SignInButton mode="modal">
+      <Button className="bg-[#FFFF] text-[#164F90] px-8 py-7 rounded-full hover:bg-gray-400 text-lg">
+        Login
+      </Button>
+    </SignInButton>
+  </SignedOut>
+
+  {/* Show when user IS signed in */}
+  <SignedIn>
+    <UserButton afterSignOutUrl="/page.js" />
+  </SignedIn>
+            <Button className="bg-[#164F90] text-[#FFFF] px-8 py-7 rounded-full hover:bg-[#4F67A4] text-lg"onClick={() => router.push("/stats")}>
+             Our Impact
+            </Button>
+            <Button className="bg-purple-400 text-white px-8 py-7 rounded-full hover:bg-purple-500 text-lg" onClick={() => router.push("/signs")}>
+             Symptoms
+            </Button>
+          </div>
+        </nav>
+
+        {/* Main Content */}
+        <div className="relative z-10 text-left mt-20 px-5">
+          <TextGenerateEffect words={words} />
+          <Button className="bg-[#164F90] text-[#FFFF] px-8 py-7 rounded-full hover:bg-[#4F67A4] text-lg relative left-140 -top-15" onClick={() => router.push("/learn")}>
+             Learn More
+            </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        {/* Waves at the bottom */}
+        <div className="absolute bottom-0 left-0 w-full z-10">
+           <Waves/>
+        </div>
+      </div>
+       <div className="relative z-10 -mt-18">
+        <Navigation />
+      </div>
+
+      {/* Help Section */}
+      <div>
+        <HelpSection />
+      </div>
+
+      {/* Footer */}
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 }
