@@ -26,7 +26,7 @@ export default function TumorDetection() {
     formData.append("file", selectedFile);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/predict", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/predict`, {
         method: "POST",
         body: formData,
       });
