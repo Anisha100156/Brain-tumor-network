@@ -53,9 +53,9 @@ source venv/bin/activate
 ```
 ## 📸 Project Preview
 
-![Brain Tumor Detection Preview](./Screenshot 2025-07-01 044026.png)
-![Brain Tumor Detection Preview](./Screenshot 2025-07-01 043836.png)
-![Brain Tumor Detection Preview](./Screenshot 2025-07-01 043856.png)
+![Brain Tumor Detection Preview](./preview3.png)
+![Brain Tumor Detection Preview](./preview1.png)
+![Brain Tumor Detection Preview](./preview2.png)
 
 
 > _Sample output showing tumor classification from an MRI scan (replace with your actual project result image)._
