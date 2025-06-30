@@ -58,5 +58,4 @@ source venv/bin/activate
 ![Brain Tumor Detection Preview](./preview2.png)
 
 
-> _Sample output showing tumor classification from an MRI scan (replace with your actual project result image)._
 
